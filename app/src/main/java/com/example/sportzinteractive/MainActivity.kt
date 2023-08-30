@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         //get hold of the textview or get handle
         var firstTv:TextView = findViewById(R.id.tvFirst)
         //set the text on tv
-        firstTv.setText("welcome to android")
+        firstTv.setText("welcome to android at sportz interactive")
        // Toast.makeText(this,"welcome",Toast.LENGTH_SHORT).show()
     }
 }

@@ -9,20 +9,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.sportzinteractive.model.Dice
-import java.lang.NullPointerException
 
 class MainActivity : AppCompatActivity() {
     var TAG = MainActivity::class.java.simpleName
-        //"MainActivity"
+
+    //"MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-            Log.i(TAG,"activity created")
+        Log.i(TAG, "activity created")
         //taking handle of the button
         val rollButton: Button = findViewById(R.id.btnRoll)
-
+        var data = intent.extras?.getString("skey")
+        val resultTextView: TextView = findViewById(R.id.tvFirst)
+        resultTextView.setText(data)
         rollButton.setOnClickListener {
-            Log.e(TAG,"button clicked")
+
+            Log.e(TAG, "button clicked")
 
             rollDice()
         }
@@ -31,12 +34,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice() {
-        Log.w(TAG,"dice rolled")
+        Log.w(TAG, "dice rolled")
 
         val dice = Dice(6)
         val diceRoll = dice.roll()
-        Log.w(TAG,"dice no got ="+diceRoll)
-
+        Log.w(TAG, "dice no got =" + diceRoll)
+        var expression = diceRoll + 10 * 20 - 40
         val diceImage: ImageView = findViewById(R.id.imageView)
 
 
@@ -52,14 +55,14 @@ class MainActivity : AppCompatActivity() {
 
         val resultTextView: TextView = findViewById(R.id.tvFirst)
         resultTextView.text = diceRoll.toString()
-        throw NullPointerException("demo to crash the app")
+        // throw NullPointerException("demo to crash the app")
     }
 
     fun clickHandler(view: View) {
         //get hold of the textview or get handle
-        var firstTv:TextView = findViewById(R.id.tvFirst)
+        var firstTv: TextView = findViewById(R.id.tvFirst)
         //set the text on tv
         firstTv.setText("welcome to android at sportz interactive")
-       // Toast.makeText(this,"welcome",Toast.LENGTH_SHORT).show()
+        // Toast.makeText(this,"welcome",Toast.LENGTH_SHORT).show()
     }
 }

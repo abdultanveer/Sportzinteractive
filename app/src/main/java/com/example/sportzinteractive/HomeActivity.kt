@@ -42,7 +42,13 @@ var TAG = HomeActivity::class.java.simpleName
 
     private fun restoreState() {
         //read the data from the file
+        var sharedPrefs = getSharedPreferences("sportsfile", MODE_PRIVATE)
+
+        var name = sharedPrefs.getString("nkey","")
+        var passwd = sharedPrefs.getString("pkey","")
         //set it in the edittext
+        nameEditText.setText(name)
+        pwdEditText.setText(passwd)
     }
 
     override fun onPause() {

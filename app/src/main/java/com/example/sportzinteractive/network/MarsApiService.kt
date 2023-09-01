@@ -1,5 +1,6 @@
 package com.example.sportzinteractive.network
 
+import com.example.sportzinteractive.model.MarsPhoto
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -21,7 +22,7 @@ private val retrofit = Retrofit.Builder()
 
 interface MarsApiService {
     @GET("photos")
-    suspend fun getPhotos(): String
+    suspend fun getPhotos(): List<MarsPhoto>
 
 }
 
